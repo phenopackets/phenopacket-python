@@ -1,11 +1,8 @@
 from phenopacket.models.Ontology import ClassInstance
 from phenopacket.models.Environment import Environment
-from phenopacket.models.Meta import Association
+from phenopacket.models.Meta import Entity, Association, Evidence
 from phenopacket.models.Ontology import OntologyClass
 from typing import Sequence
-import logging
-
-logger = logging.getLogger(__name__)
 
 
 class Assay(ClassInstance):
@@ -28,28 +25,35 @@ class Condition(ClassInstance):
     def __init__(self, types: Sequence[OntologyClass]=[],
                  negated_types: Sequence[OntologyClass]=[],
                  description: str=None,
-                 has_location=None, onset=None, offset=None, severity=None,
-                 environment=None):
+                 has_location: str=None, onset: TemporalRegion=None,
+                 offset: TemporalRegion=None, severity: ConditionSeverity=None,
+                 environment: Environment=None) -> None:
         super().__init__(types, negated_types, description)
 
         if not isinstance(environment, Environment):
-            logger.error("environment is not an instance of Environment")
+            raise TypeError("environment is not of type Environment")
 
         if not isinstance(severity, ConditionSeverity):
-            logger.error("severity is not an instance of ConditionSeverity")
+            raise TypeError("severity is not of type ConditionSeverity")
 
         if not isinstance(onset, TemporalRegion):
-            logger.error("onset is not an instance of TemporalRegion")
+            raise TypeError("onset is not of type TemporalRegion")
 
         if not isinstance(offset, TemporalRegion):
-            logger.error("offset is not an instance of TemporalRegion")
+            raise TypeError("offset is not of type TemporalRegion")
+
+        self.has_location = has_location
+        self.onset = onset
+        self.offset = offset
+        self.severity = severity
+        self.environment = environment
 
 
 class ConditionSeverity(ClassInstance):
 
     def __init__(self, types: Sequence[OntologyClass]=[],
                  negated_types: Sequence[OntologyClass]=[],
-                 description: str=None):
+                 description: str=None) -> None:
         super().__init__(types, negated_types, description)
 
 
@@ -58,11 +62,11 @@ class DiseaseStage(Condition):
     def __init__(self, types: Sequence[OntologyClass]=[],
                  negated_types: Sequence[OntologyClass]=[],
                  description: str=None,
-                 has_location=None, onset=None, offset=None, severity=None,
-                 environment=None):
+                 has_location: str=None, onset: TemporalRegion=None,
+                 offset: TemporalRegion=None, severity: ConditionSeverity=None,
+                 environment: Environment=None) -> None:
         super().__init__(types, negated_types, description, has_location,
                          onset, offset, severity, environment)
-
 
 
 class DiseaseOccurrence(Condition):
@@ -70,21 +74,27 @@ class DiseaseOccurrence(Condition):
     def __init__(self, types: Sequence[OntologyClass]=[],
                  negated_types: Sequence[OntologyClass]=[],
                  description: str=None,
-                 has_location=None, onset=None, offset=None, severity=None,
-                 environment=None, stage=None):
+                 has_location: str=None, onset: TemporalRegion=None,
+                 offset: TemporalRegion=None, severity: ConditionSeverity=None,
+                 environment: Environment=None, stage: DiseaseStage=None) -> None:
         super().__init__(types, negated_types, description, has_location,
                          onset, offset, severity, environment)
 
         if not isinstance(stage, DiseaseStage):
-            logger.error("stage is not an instance of DiseaseStage")
+            raise TypeError("stage is not of type DiseaseStage")
+
+        self.stage = stage
 
 
 class DiseaseOccurrenceAssociation(Association):
 
-    def __init__(self, entity=None, evidence_list=[], disease=None):
+    def __init__(self, entity: Entity=None, evidence_list: Sequence[Evidence]=[],
+                 disease: DiseaseOccurrence=None) -> None:
         super().__init__(entity, evidence_list)
         if not isinstance(disease, DiseaseOccurrence):
-            logger.error("disease is not an instance of DiseaseOccurrence")
+            raise TypeError("disease is not of type DiseaseOccurrence")
+
+        self.disease = disease
 
 
 class Measurement(ClassInstance):
@@ -92,11 +102,14 @@ class Measurement(ClassInstance):
     def __init__(self, types: Sequence[OntologyClass]=[],
                  negated_types: Sequence[OntologyClass]=[],
                  description: str=None,
-                 unit=None, magnitude=None):
+                 unit: OntologyClass=None, magnitude: str=None) -> None:
         super().__init__(types, negated_types, description)
 
         if not isinstance(unit, OntologyClass):
-            logger.error("unit is not an instance of OntologyClass")
+            raise TypeError("unit is not of type OntologyClass")
+
+        self.unit = unit
+        self.magnitude = magnitude
 
 
 class OrganismalSite(ClassInstance):
@@ -110,7 +123,7 @@ class OrganismalSite(ClassInstance):
 
     def __init__(self, types: Sequence[OntologyClass]=[],
                  negated_types: Sequence[OntologyClass]=[],
-                 description: str=None):
+                 description: str=None) -> None:
         super().__init__(types, negated_types, description)
 
 
@@ -121,24 +134,32 @@ class Phenotype(Condition):
 
     def __init__(self, types: Sequence[OntologyClass]=[],
                  negated_types: Sequence[OntologyClass]=[],
-                 description: str=None,
-                 has_location=None, onset=None, offset=None, severity=None,
-                 environment=None, measurements=[]):
+                 description: str=None, has_location: str=None,
+                 onset: TemporalRegion=None, offset: TemporalRegion=None,
+                 severity: ConditionSeverity=None,
+                 environment: Environment=None,
+                 measurements: Sequence[Measurement]=[]) -> None:
 
         super().__init__(types, negated_types, description, has_location,
                          onset, offset, severity, environment)
 
         if not all(isinstance(measurement, Measurement)
                    for measurement in measurements):
-            logger.error("all values in measurements are instances Measurement")
+            raise TypeError("all values in measurements are not of type Measurement")
+
+        self.measurements = measurements
 
 
 class PhenotypeAssociation(Association):
 
-    def __init__(self, entity=None, evidence_list=[], phenotype=None):
+    def __init__(self, entity: Entity=None,
+                 evidence_list: Sequence[Evidence]=[],
+                 phenotype: Phenotype=None) -> None:
         super().__init__(entity, evidence_list)
         if not isinstance(phenotype, Phenotype):
-            logger.error("phenotype is not an instance of Phenotype")
+            raise TypeError("phenotype is not of type Phenotype")
+
+        self.phenotype = phenotype
 
 
 class TemporalRegion(ClassInstance):
@@ -146,5 +167,8 @@ class TemporalRegion(ClassInstance):
     def __init__(self, types: Sequence[OntologyClass]=[],
                  negated_types: Sequence[OntologyClass]=[],
                  description: str=None,
-                 startTime=None, endTime=None):
+                 start_time: str=None, end_time: str=None) -> None:
         super().__init__(types, negated_types, description)
+
+        self.start_time = start_time
+        self.end_time = end_time

@@ -1,8 +1,6 @@
-from phenopacket.models.Ontology import ClassInstance
-from phenopacket.models.Meta import Association
-import logging
-
-logger = logging.getLogger(__name__)
+from phenopacket.models.Ontology import ClassInstance, OntologyClass
+from phenopacket.models.Meta import Association, Entity, Evidence
+from typing import Sequence
 
 
 class Environment(ClassInstance):
@@ -17,13 +15,19 @@ class Environment(ClassInstance):
       - microbiome
     """
 
-    def __init__(self, types=[], negated_types=[], description=None):
+    def __init__(self, types: Sequence[OntologyClass]=[],
+                 negated_types: Sequence[OntologyClass]=[],
+                 description: str=None,) -> None:
         super().__init__(types, negated_types, description)
 
 
 class EnvironmentAssociation(Association):
 
-    def __init__(self, entity=None, evidence_list=[], environment=None):
+    def __init__(self, entity: Entity=None,
+                 evidence_list: Sequence[Evidence]=[],
+                 environment: Environment=None) -> None:
         super().__init__(entity, evidence_list, )
         if not isinstance(environment, Environment):
-            logger.error("environment is not an instance of Environment")
+            raise TypeError("environment is not of type Environment")
+
+        self.environment = environment
