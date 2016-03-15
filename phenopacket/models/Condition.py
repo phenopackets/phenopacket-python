@@ -2,6 +2,7 @@ from phenopacket.models.Ontology import ClassInstance
 from phenopacket.models.Environment import Environment
 from phenopacket.models.Meta import Association
 from phenopacket.models.Ontology import OntologyClass
+from typing import Sequence
 import logging
 
 logger = logging.getLogger(__name__)
@@ -13,7 +14,9 @@ class Assay(ClassInstance):
     the presence or extent of a phenotype
     """
 
-    def __init__(self, types=[], negated_types=[], description=None):
+    def __init__(self, types: Sequence[OntologyClass]=[],
+                 negated_types: Sequence[OntologyClass]=[],
+                 description: str=None) -> None:
         super().__init__(types, negated_types, description)
 
 
@@ -22,7 +25,9 @@ class Condition(ClassInstance):
     An abstract class that encompasses both DiseaseOccurrences and Phenotypes
     """
 
-    def __init__(self, types=[], negated_types=[], description=None,
+    def __init__(self, types: Sequence[OntologyClass]=[],
+                 negated_types: Sequence[OntologyClass]=[],
+                 description: str=None,
                  has_location=None, onset=None, offset=None, severity=None,
                  environment=None):
         super().__init__(types, negated_types, description)
@@ -42,13 +47,17 @@ class Condition(ClassInstance):
 
 class ConditionSeverity(ClassInstance):
 
-    def __init__(self, types=[], negated_types=[], description=None):
+    def __init__(self, types: Sequence[OntologyClass]=[],
+                 negated_types: Sequence[OntologyClass]=[],
+                 description: str=None):
         super().__init__(types, negated_types, description)
 
 
 class DiseaseStage(Condition):
 
-    def __init__(self, types=[], negated_types=[], description=None,
+    def __init__(self, types: Sequence[OntologyClass]=[],
+                 negated_types: Sequence[OntologyClass]=[],
+                 description: str=None,
                  has_location=None, onset=None, offset=None, severity=None,
                  environment=None):
         super().__init__(types, negated_types, description, has_location,
@@ -58,7 +67,9 @@ class DiseaseStage(Condition):
 
 class DiseaseOccurrence(Condition):
 
-    def __init__(self, types=[], negated_types=[], description=None,
+    def __init__(self, types: Sequence[OntologyClass]=[],
+                 negated_types: Sequence[OntologyClass]=[],
+                 description: str=None,
                  has_location=None, onset=None, offset=None, severity=None,
                  environment=None, stage=None):
         super().__init__(types, negated_types, description, has_location,
@@ -78,7 +89,9 @@ class DiseaseOccurrenceAssociation(Association):
 
 class Measurement(ClassInstance):
 
-    def __init__(self, types=[], negated_types=[], description=None,
+    def __init__(self, types: Sequence[OntologyClass]=[],
+                 negated_types: Sequence[OntologyClass]=[],
+                 description: str=None,
                  unit=None, magnitude=None):
         super().__init__(types, negated_types, description)
 
@@ -95,7 +108,9 @@ class OrganismalSite(ClassInstance):
     as Uberon and CL.
     """
 
-    def __init__(self, types=[], negated_types=[], description=None):
+    def __init__(self, types: Sequence[OntologyClass]=[],
+                 negated_types: Sequence[OntologyClass]=[],
+                 description: str=None):
         super().__init__(types, negated_types, description)
 
 
@@ -104,7 +119,9 @@ class Phenotype(Condition):
     An individual occurrence of a phenotype (a type of condition)
     """
 
-    def __init__(self, types=[], negated_types=[], description=None,
+    def __init__(self, types: Sequence[OntologyClass]=[],
+                 negated_types: Sequence[OntologyClass]=[],
+                 description: str=None,
                  has_location=None, onset=None, offset=None, severity=None,
                  environment=None, measurements=[]):
 
@@ -126,6 +143,8 @@ class PhenotypeAssociation(Association):
 
 class TemporalRegion(ClassInstance):
 
-    def __init__(self, types=[], negated_types=[], description=None,
+    def __init__(self, types: Sequence[OntologyClass]=[],
+                 negated_types: Sequence[OntologyClass]=[],
+                 description: str=None,
                  startTime=None, endTime=None):
         super().__init__(types, negated_types, description)

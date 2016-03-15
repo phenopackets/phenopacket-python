@@ -1,1 +1,1 @@
-# Init stub, add global package imports here
+# Init stub, add package level imports here
