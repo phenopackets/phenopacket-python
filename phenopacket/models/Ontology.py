@@ -18,15 +18,15 @@ class ClassInstance(object):
 class OntologyClass(object):
 
     def __init__(self, class_id: str=None, label: str=None) -> None:
-        self.class_id = class_id
+        self.id = class_id
         self.label = label
 
 
 class PropertyValue(object):
 
-    def __init__(self, property: str=None, filler: str=None) -> None:
+    def __init__(self, prop: str=None, filler: str=None) -> None:
         # Filler can be an object or string
-        self.property = property
+        self.property = prop
         self.filler = filler
 
 
