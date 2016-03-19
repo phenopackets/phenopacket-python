@@ -3,6 +3,7 @@ import os
 import json
 from jsonschema import validate, ValidationError
 import python_jsonschema_objects as jsonobjects
+from python_jsonschema_objects import ValidationError as ValidationException
 
 
 class ValidatorTestCase(unittest.TestCase):
@@ -73,18 +74,7 @@ class ValidatorTestCase(unittest.TestCase):
         """
         Test that our other example files validate as correct
         """
-        # with self.assertRaises(KeyError):
-        #    validate(self.patient_example, self.schema)
-
-        # jsonschema fails here with:
-        # KeyError: 'urn:jsonschema:org:monarchinitiative:ppk:model:condition:TemporalRegion'
-        # urllib.error.URLError: <urlopen error unknown url type: urn>
-        # jsonschema.exceptions.RefResolutionError: <urlopen error unknown url type: urn>
-
-        # builder = jsonobjects.ObjectBuilder(self.schema)
-        # ns = builder.build_classes()
-        # Same issues
-        # urllib.error.URLError: <urlopen error unknown url type: urn>
+        validate(self.patient_example, self.schema)
 
     def test_variant_example(self):
         """
@@ -92,33 +82,20 @@ class ValidatorTestCase(unittest.TestCase):
         """
         validate(self.variant_example, self.schema)
 
-
-class JsonToObjectTestCase(unittest.TestCase):
-    """
-    Test JSON to Python Object Mappers such as warlock and
-    python_jsonschema_objects, see
-    http://stackoverflow.com/questions/12465588/convert-a-json-schema-to-a-python-class
-    """
-
-    def setUp(self):
-        schema_path = "../resources/schemas/phenopacket-level-1-schema.json"
-        omim_path = "../resources/examples/omim-example-l1.json"
-
-        schema_fh = open(os.path.join(os.path.dirname(__file__), schema_path), 'r')
-        self.schema = json.load(schema_fh)
-
-        omim_fh = open(os.path.join(os.path.dirname(__file__), omim_path), 'r')
-        self.omim_example = json.load(omim_fh)
-
-        schema_fh.close()
-        omim_fh.close()
-
-    def tearDown(self):
-        pass
-
-    def test_omim_object_mapping(self):
+    def test_jsonobjects_as_validator(self):
         builder = jsonobjects.ObjectBuilder(self.schema)
-        ns = builder.build_classes()
+        namespace = builder.build_classes()
+
+        # check that this works
+        pheno_packet = namespace\
+            .UrnJsonschemaOrgMonarchinitiativePpkModelPhenopacket()\
+            .from_json(json.dumps(self.omim_example))
+
+        # check that this raises an exception
+        with self.assertRaises(ValidationException):
+            journal = namespace\
+                .UrnJsonschemaOrgMonarchinitiativePpkModelPhenopacket()\
+                .from_json(json.dumps(self.journal_example))
 
 
 if __name__ == '__main__':

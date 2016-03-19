@@ -41,7 +41,7 @@
             "description" : "Any instance can be assigned any number of negative classes.",
             "items" : {
               "type" : "object",
-              "$ref" : "urn:jsonschema:org:monarchinitiative:ppk:model:ontology:OntologyClass"
+              "id" : "urn:jsonschema:org:monarchinitiative:ppk:model:ontology:OntologyClass"
             }
           },
           "description" : {
@@ -77,7 +77,7 @@
             "description" : "Any instance can be positively described as the intersection of any number of ontology classes.",
             "items" : {
               "type" : "object",
-              "$ref" : "urn:jsonschema:org:monarchinitiative:ppk:model:ontology:OntologyClass"
+              "id" : "urn:jsonschema:org:monarchinitiative:ppk:model:ontology:OntologyClass"
             }
           },
           "negated_types" : {
@@ -85,7 +85,7 @@
             "description" : "Any instance can be assigned any number of negative classes.",
             "items" : {
               "type" : "object",
-              "$ref" : "urn:jsonschema:org:monarchinitiative:ppk:model:ontology:OntologyClass"
+              "id" : "urn:jsonschema:org:monarchinitiative:ppk:model:ontology:OntologyClass"
             }
           },
           "description" : {
@@ -115,18 +115,18 @@
           },
           "taxon" : {
             "type" : "object",
-            "$ref" : "urn:jsonschema:org:monarchinitiative:ppk:model:ontology:OntologyClass"
+            "id" : "urn:jsonschema:org:monarchinitiative:ppk:model:ontology:OntologyClass"
           },
           "strain" : {
             "type" : "object",
-            "$ref" : "urn:jsonschema:org:monarchinitiative:ppk:model:ontology:OntologyClass"
+            "id" : "urn:jsonschema:org:monarchinitiative:ppk:model:ontology:OntologyClass"
           },
           "types" : {
             "type" : "array",
             "description" : "Any instance can be positively described as the intersection of any number of ontology classes.",
             "items" : {
               "type" : "object",
-              "$ref" : "urn:jsonschema:org:monarchinitiative:ppk:model:ontology:OntologyClass"
+              "id" : "urn:jsonschema:org:monarchinitiative:ppk:model:ontology:OntologyClass"
             }
           },
           "negated_types" : {
@@ -134,7 +134,7 @@
             "description" : "Any instance can be assigned any number of negative classes.",
             "items" : {
               "type" : "object",
-              "$ref" : "urn:jsonschema:org:monarchinitiative:ppk:model:ontology:OntologyClass"
+              "id" : "urn:jsonschema:org:monarchinitiative:ppk:model:ontology:OntologyClass"
             }
           },
           "description" : {
@@ -164,18 +164,18 @@
           },
           "taxon" : {
             "type" : "object",
-            "$ref" : "urn:jsonschema:org:monarchinitiative:ppk:model:ontology:OntologyClass"
+            "id" : "urn:jsonschema:org:monarchinitiative:ppk:model:ontology:OntologyClass"
           },
           "strain" : {
             "type" : "object",
-            "$ref" : "urn:jsonschema:org:monarchinitiative:ppk:model:ontology:OntologyClass"
+            "id" : "urn:jsonschema:org:monarchinitiative:ppk:model:ontology:OntologyClass"
           },
           "types" : {
             "type" : "array",
             "description" : "Any instance can be positively described as the intersection of any number of ontology classes.",
             "items" : {
               "type" : "object",
-              "$ref" : "urn:jsonschema:org:monarchinitiative:ppk:model:ontology:OntologyClass"
+              "id" : "urn:jsonschema:org:monarchinitiative:ppk:model:ontology:OntologyClass"
             }
           },
           "negated_types" : {
@@ -183,7 +183,7 @@
             "description" : "Any instance can be assigned any number of negative classes.",
             "items" : {
               "type" : "object",
-              "$ref" : "urn:jsonschema:org:monarchinitiative:ppk:model:ontology:OntologyClass"
+              "id" : "urn:jsonschema:org:monarchinitiative:ppk:model:ontology:OntologyClass"
             }
           },
           "description" : {
@@ -219,7 +219,7 @@
                   "properties" : {
                     "unit" : {
                       "type" : "object",
-                      "$ref" : "urn:jsonschema:org:monarchinitiative:ppk:model:ontology:OntologyClass"
+                      "id" : "urn:jsonschema:org:monarchinitiative:ppk:model:ontology:OntologyClass"
                     },
                     "magnitude" : {
                       "type" : "number"
@@ -229,7 +229,7 @@
                       "description" : "Any instance can be positively described as the intersection of any number of ontology classes.",
                       "items" : {
                         "type" : "object",
-                        "$ref" : "urn:jsonschema:org:monarchinitiative:ppk:model:ontology:OntologyClass"
+                        "id" : "urn:jsonschema:org:monarchinitiative:ppk:model:ontology:OntologyClass"
                       }
                     },
                     "negated_types" : {
@@ -237,7 +237,7 @@
                       "description" : "Any instance can be assigned any number of negative classes.",
                       "items" : {
                         "type" : "object",
-                        "$ref" : "urn:jsonschema:org:monarchinitiative:ppk:model:ontology:OntologyClass"
+                        "id" : "urn:jsonschema:org:monarchinitiative:ppk:model:ontology:OntologyClass"
                       }
                     },
                     "description" : {
@@ -252,7 +252,7 @@
                 "description" : "Any instance can be positively described as the intersection of any number of ontology classes.",
                 "items" : {
                   "type" : "object",
-                  "$ref" : "urn:jsonschema:org:monarchinitiative:ppk:model:ontology:OntologyClass"
+                  "id" : "urn:jsonschema:org:monarchinitiative:ppk:model:ontology:OntologyClass"
                 }
               },
               "negated_types" : {
@@ -260,7 +260,7 @@
                 "description" : "Any instance can be assigned any number of negative classes.",
                 "items" : {
                   "type" : "object",
-                  "$ref" : "urn:jsonschema:org:monarchinitiative:ppk:model:ontology:OntologyClass"
+                  "id" : "urn:jsonschema:org:monarchinitiative:ppk:model:ontology:OntologyClass"
                 }
               },
               "description" : {
@@ -277,7 +277,7 @@
                     "description" : "Any instance can be positively described as the intersection of any number of ontology classes.",
                     "items" : {
                       "type" : "object",
-                      "$ref" : "urn:jsonschema:org:monarchinitiative:ppk:model:ontology:OntologyClass"
+                      "id" : "urn:jsonschema:org:monarchinitiative:ppk:model:ontology:OntologyClass"
                     }
                   },
                   "negated_types" : {
@@ -285,7 +285,7 @@
                     "description" : "Any instance can be assigned any number of negative classes.",
                     "items" : {
                       "type" : "object",
-                      "$ref" : "urn:jsonschema:org:monarchinitiative:ppk:model:ontology:OntologyClass"
+                      "id" : "urn:jsonschema:org:monarchinitiative:ppk:model:ontology:OntologyClass"
                     }
                   },
                   "description" : {
@@ -310,7 +310,7 @@
                     "description" : "Any instance can be positively described as the intersection of any number of ontology classes.",
                     "items" : {
                       "type" : "object",
-                      "$ref" : "urn:jsonschema:org:monarchinitiative:ppk:model:ontology:OntologyClass"
+                      "id" : "urn:jsonschema:org:monarchinitiative:ppk:model:ontology:OntologyClass"
                     }
                   },
                   "negated_types" : {
@@ -318,7 +318,7 @@
                     "description" : "Any instance can be assigned any number of negative classes.",
                     "items" : {
                       "type" : "object",
-                      "$ref" : "urn:jsonschema:org:monarchinitiative:ppk:model:ontology:OntologyClass"
+                      "id" : "urn:jsonschema:org:monarchinitiative:ppk:model:ontology:OntologyClass"
                     }
                   },
                   "description" : {
@@ -329,7 +329,7 @@
               },
               "offset" : {
                 "type" : "object",
-                "$ref" : "urn:jsonschema:org:monarchinitiative:ppk:model:condition:TemporalRegion",
+                "id" : "urn:jsonschema:org:monarchinitiative:ppk:model:condition:TemporalRegion",
                 "description" : "the time region in which the condition ceases to manifest"
               },
               "severity" : {
@@ -342,7 +342,7 @@
                     "description" : "Any instance can be positively described as the intersection of any number of ontology classes.",
                     "items" : {
                       "type" : "object",
-                      "$ref" : "urn:jsonschema:org:monarchinitiative:ppk:model:ontology:OntologyClass"
+                      "id" : "urn:jsonschema:org:monarchinitiative:ppk:model:ontology:OntologyClass"
                     }
                   },
                   "negated_types" : {
@@ -350,7 +350,7 @@
                     "description" : "Any instance can be assigned any number of negative classes.",
                     "items" : {
                       "type" : "object",
-                      "$ref" : "urn:jsonschema:org:monarchinitiative:ppk:model:ontology:OntologyClass"
+                      "id" : "urn:jsonschema:org:monarchinitiative:ppk:model:ontology:OntologyClass"
                     }
                   },
                   "description" : {
@@ -369,7 +369,7 @@
                     "description" : "Any instance can be positively described as the intersection of any number of ontology classes.",
                     "items" : {
                       "type" : "object",
-                      "$ref" : "urn:jsonschema:org:monarchinitiative:ppk:model:ontology:OntologyClass"
+                      "id" : "urn:jsonschema:org:monarchinitiative:ppk:model:ontology:OntologyClass"
                     }
                   },
                   "negated_types" : {
@@ -377,7 +377,7 @@
                     "description" : "Any instance can be assigned any number of negative classes.",
                     "items" : {
                       "type" : "object",
-                      "$ref" : "urn:jsonschema:org:monarchinitiative:ppk:model:ontology:OntologyClass"
+                      "id" : "urn:jsonschema:org:monarchinitiative:ppk:model:ontology:OntologyClass"
                     }
                   },
                   "description" : {
@@ -403,7 +403,7 @@
                   "description" : "Any instance can be positively described as the intersection of any number of ontology classes.",
                   "items" : {
                     "type" : "object",
-                    "$ref" : "urn:jsonschema:org:monarchinitiative:ppk:model:ontology:OntologyClass"
+                    "id" : "urn:jsonschema:org:monarchinitiative:ppk:model:ontology:OntologyClass"
                   }
                 },
                 "negated_types" : {
@@ -411,7 +411,7 @@
                   "description" : "Any instance can be assigned any number of negative classes.",
                   "items" : {
                     "type" : "object",
-                    "$ref" : "urn:jsonschema:org:monarchinitiative:ppk:model:ontology:OntologyClass"
+                    "id" : "urn:jsonschema:org:monarchinitiative:ppk:model:ontology:OntologyClass"
                   }
                 },
                 "description" : {
@@ -456,7 +456,7 @@
                     "description" : "Any instance can be positively described as the intersection of any number of ontology classes.",
                     "items" : {
                       "type" : "object",
-                      "$ref" : "urn:jsonschema:org:monarchinitiative:ppk:model:ontology:OntologyClass"
+                      "id" : "urn:jsonschema:org:monarchinitiative:ppk:model:ontology:OntologyClass"
                     }
                   },
                   "negated_types" : {
@@ -464,7 +464,7 @@
                     "description" : "Any instance can be assigned any number of negative classes.",
                     "items" : {
                       "type" : "object",
-                      "$ref" : "urn:jsonschema:org:monarchinitiative:ppk:model:ontology:OntologyClass"
+                      "id" : "urn:jsonschema:org:monarchinitiative:ppk:model:ontology:OntologyClass"
                     }
                   },
                   "description" : {
@@ -473,27 +473,27 @@
                   },
                   "has_location" : {
                     "type" : "object",
-                    "$ref" : "urn:jsonschema:org:monarchinitiative:ppk:model:condition:OrganismalSite",
+                    "id" : "urn:jsonschema:org:monarchinitiative:ppk:model:condition:OrganismalSite",
                     "description" : "the location in an organism or cell in which the phenotype manifests"
                   },
                   "onset" : {
                     "type" : "object",
-                    "$ref" : "urn:jsonschema:org:monarchinitiative:ppk:model:condition:TemporalRegion",
+                    "id" : "urn:jsonschema:org:monarchinitiative:ppk:model:condition:TemporalRegion",
                     "description" : "the time region in which the condition is first manifest"
                   },
                   "offset" : {
                     "type" : "object",
-                    "$ref" : "urn:jsonschema:org:monarchinitiative:ppk:model:condition:TemporalRegion",
+                    "id" : "urn:jsonschema:org:monarchinitiative:ppk:model:condition:TemporalRegion",
                     "description" : "the time region in which the condition ceases to manifest"
                   },
                   "severity" : {
                     "type" : "object",
-                    "$ref" : "urn:jsonschema:org:monarchinitiative:ppk:model:condition:ConditionSeverity",
+                    "id" : "urn:jsonschema:org:monarchinitiative:ppk:model:condition:ConditionSeverity",
                     "description" : "the degree to which the phenotype is manifest, related to the concept of expressivity, see http://www.ncbi.nlm.nih.gov/books/NBK22090/"
                   },
                   "environment" : {
                     "type" : "object",
-                    "$ref" : "urn:jsonschema:org:monarchinitiative:ppk:model:environment:Environment",
+                    "id" : "urn:jsonschema:org:monarchinitiative:ppk:model:environment:Environment",
                     "description" : "the environment in which the phenotype is expressed"
                   }
                 }
@@ -503,7 +503,7 @@
                 "description" : "Any instance can be positively described as the intersection of any number of ontology classes.",
                 "items" : {
                   "type" : "object",
-                  "$ref" : "urn:jsonschema:org:monarchinitiative:ppk:model:ontology:OntologyClass"
+                  "id" : "urn:jsonschema:org:monarchinitiative:ppk:model:ontology:OntologyClass"
                 }
               },
               "negated_types" : {
@@ -511,7 +511,7 @@
                 "description" : "Any instance can be assigned any number of negative classes.",
                 "items" : {
                   "type" : "object",
-                  "$ref" : "urn:jsonschema:org:monarchinitiative:ppk:model:ontology:OntologyClass"
+                  "id" : "urn:jsonschema:org:monarchinitiative:ppk:model:ontology:OntologyClass"
                 }
               },
               "description" : {
@@ -520,27 +520,27 @@
               },
               "has_location" : {
                 "type" : "object",
-                "$ref" : "urn:jsonschema:org:monarchinitiative:ppk:model:condition:OrganismalSite",
+                "id" : "urn:jsonschema:org:monarchinitiative:ppk:model:condition:OrganismalSite",
                 "description" : "the location in an organism or cell in which the phenotype manifests"
               },
               "onset" : {
                 "type" : "object",
-                "$ref" : "urn:jsonschema:org:monarchinitiative:ppk:model:condition:TemporalRegion",
+                "id" : "urn:jsonschema:org:monarchinitiative:ppk:model:condition:TemporalRegion",
                 "description" : "the time region in which the condition is first manifest"
               },
               "offset" : {
                 "type" : "object",
-                "$ref" : "urn:jsonschema:org:monarchinitiative:ppk:model:condition:TemporalRegion",
+                "id" : "urn:jsonschema:org:monarchinitiative:ppk:model:condition:TemporalRegion",
                 "description" : "the time region in which the condition ceases to manifest"
               },
               "severity" : {
                 "type" : "object",
-                "$ref" : "urn:jsonschema:org:monarchinitiative:ppk:model:condition:ConditionSeverity",
+                "id" : "urn:jsonschema:org:monarchinitiative:ppk:model:condition:ConditionSeverity",
                 "description" : "the degree to which the phenotype is manifest, related to the concept of expressivity, see http://www.ncbi.nlm.nih.gov/books/NBK22090/"
               },
               "environment" : {
                 "type" : "object",
-                "$ref" : "urn:jsonschema:org:monarchinitiative:ppk:model:environment:Environment",
+                "id" : "urn:jsonschema:org:monarchinitiative:ppk:model:environment:Environment",
                 "description" : "the environment in which the phenotype is expressed"
               }
             }
@@ -553,7 +553,7 @@
             "description" : "Any Association can have any number of pieces of evidence attached",
             "items" : {
               "type" : "object",
-              "$ref" : "urn:jsonschema:org:monarchinitiative:ppk:model:meta:Evidence"
+              "id" : "urn:jsonschema:org:monarchinitiative:ppk:model:meta:Evidence"
             }
           }
         }
@@ -567,7 +567,7 @@
         "properties" : {
           "environment" : {
             "type" : "object",
-            "$ref" : "urn:jsonschema:org:monarchinitiative:ppk:model:environment:Environment",
+            "id" : "urn:jsonschema:org:monarchinitiative:ppk:model:environment:Environment",
             "description" : "The environment which this association is about"
           },
           "entity" : {
@@ -578,7 +578,7 @@
             "description" : "Any Association can have any number of pieces of evidence attached",
             "items" : {
               "type" : "object",
-              "$ref" : "urn:jsonschema:org:monarchinitiative:ppk:model:meta:Evidence"
+              "id" : "urn:jsonschema:org:monarchinitiative:ppk:model:meta:Evidence"
             }
           }
         }
