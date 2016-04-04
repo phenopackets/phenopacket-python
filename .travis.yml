@@ -2,5 +2,5 @@ language: python
 python:
   - "3.4"
 install:  "pip install -r requirements.txt"
-script:  python tests/unit/json_validation_test.py
+script:  sh tests/unit/scriptrunner.sh
 
