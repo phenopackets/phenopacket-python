@@ -1,3 +1,2 @@
 jsonschema
-json
 python_jsonschema_objects
