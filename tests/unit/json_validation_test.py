@@ -21,7 +21,7 @@ class ValidatorTestCase(unittest.TestCase):
     """
 
     def setUp(self):
-        schema_path = "../resources/schemas/phenopacket-level-1-schema.json"
+        schema_path = "../resources/schemas/phenopacket-level-1-schema-bad.json"
         journal_path = "../resources/examples/journal-example-l1.json"
         omim_path = "../resources/examples/omim-example-l1.json"
         patient_path = "../resources/examples/patient-example-l1.json"
