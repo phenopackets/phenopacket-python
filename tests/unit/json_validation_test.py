@@ -1,7 +1,7 @@
 import unittest
 import os
 import json
-from jsonschema import validate, ValidationError
+from jsonschema import validate, ValidationError, SchemaError
 import python_jsonschema_objects as jsonobjects
 from python_jsonschema_objects import ValidationError as ValidationException
 
@@ -61,8 +61,15 @@ class ValidatorTestCase(unittest.TestCase):
         uses "human" instead of patient
         'human' is not one of ['disease', 'organism', 'patient', 'variant', 'genotype']
         """
-        with self.assertRaises(ValidationError):
+       # with self.assertRaises(ValidationError):
+        #    validate(self.journal_example, self.schema)
+        try:
             validate(self.journal_example, self.schema)
+            self.assertFail()
+        except ValidationError as e:
+            self.assertEqual(e.message,
+                             "'human' is not one of ['disease', 'organism', 'patient', 'variant', 'genotype']")
+
 
     def test_omim_example(self):
         """
@@ -96,6 +103,18 @@ class ValidatorTestCase(unittest.TestCase):
             journal = namespace\
                 .UrnJsonschemaOrgMonarchinitiativePpkModelPhenopacket()\
                 .from_json(json.dumps(self.journal_example))
+
+    def test_invalid_schema(self):
+        schema_path = "../resources/schemas/phenopacket-level-1-schema-bad.json"
+        schema_fh = open(os.path.join(os.path.dirname(__file__), schema_path), 'r')
+        schema = json.load(schema_fh)
+        schema_fh.close()
+
+        # this should fail
+        with self.assertRaises(SchemaError):
+            validate(self.omim_example,schema)
+
+        
 
 
 if __name__ == '__main__':
