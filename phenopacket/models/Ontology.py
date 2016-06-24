@@ -1,4 +1,15 @@
 from typing import Sequence
+import json
+
+
+class OntologyClass(object):
+
+    def __init__(self, class_id: str=None, label: str=None) -> None:
+        self.id = class_id
+        self.label = label
+
+    def to_json(self):
+        return self.__dict__
 
 
 class ClassInstance(object):
@@ -14,12 +25,8 @@ class ClassInstance(object):
         self.negated_types = negated_types
         self.description = description
 
-
-class OntologyClass(object):
-
-    def __init__(self, class_id: str=None, label: str=None) -> None:
-        self.id = class_id
-        self.label = label
+    def to_json(self):
+        return self.__dict__
 
 
 class PropertyValue(object):
@@ -28,5 +35,8 @@ class PropertyValue(object):
         # Filler can be an object or string
         self.property = prop
         self.filler = filler
+
+    def to_json(self):
+        return self.__dict__
 
 
