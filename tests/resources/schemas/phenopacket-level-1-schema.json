@@ -16,7 +16,7 @@
         "properties" : {
           "type" : {
             "type" : "string",
-            "enum" : [ "disease", "organism", "patient", "variant", "genotype" ]
+            "enum" : [ "disease", "organism", "patient", "variant", "genotype", "paper" ]
           },
           "types" : {
             "type" : "array",

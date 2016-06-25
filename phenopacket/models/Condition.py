@@ -3,7 +3,7 @@ from phenopacket.models.Environment import Environment
 from phenopacket.models.Meta import Entity, Association, Evidence
 from phenopacket.models.Ontology import OntologyClass
 from typing import Sequence
-
+import json
 
 class Assay(ClassInstance):
     """
@@ -15,6 +15,28 @@ class Assay(ClassInstance):
                  negated_types: Sequence[OntologyClass]=[],
                  description: str=None) -> None:
         super().__init__(types, negated_types, description)
+
+
+
+class TemporalRegion(ClassInstance):
+
+    def __init__(self, types: Sequence[OntologyClass]=[],
+                 negated_types: Sequence[OntologyClass]=[],
+                 description: str=None,
+                 start_time: str=None, end_time: str=None) -> None:
+        super().__init__(types, negated_types, description)
+
+        self.start_time = start_time
+        self.end_time = end_time
+
+
+class ConditionSeverity(ClassInstance):
+
+    def __init__(self, types: Sequence[OntologyClass]=[],
+                 negated_types: Sequence[OntologyClass]=[],
+                 description: str=None) -> None:
+        super().__init__(types, negated_types, description)
+
 
 
 class Condition(ClassInstance):
@@ -47,14 +69,6 @@ class Condition(ClassInstance):
         self.offset = offset
         self.severity = severity
         self.environment = environment
-
-
-class ConditionSeverity(ClassInstance):
-
-    def __init__(self, types: Sequence[OntologyClass]=[],
-                 negated_types: Sequence[OntologyClass]=[],
-                 description: str=None) -> None:
-        super().__init__(types, negated_types, description)
 
 
 class DiseaseStage(Condition):
@@ -149,6 +163,10 @@ class Phenotype(Condition):
 
         self.measurements = measurements
 
+    def to_json(self):
+        return self.__dict__
+
+
 
 class PhenotypeAssociation(Association):
 
@@ -161,14 +179,7 @@ class PhenotypeAssociation(Association):
 
         self.phenotype = phenotype
 
+    def to_json(self):
+        return self.__dict__
 
-class TemporalRegion(ClassInstance):
 
-    def __init__(self, types: Sequence[OntologyClass]=[],
-                 negated_types: Sequence[OntologyClass]=[],
-                 description: str=None,
-                 start_time: str=None, end_time: str=None) -> None:
-        super().__init__(types, negated_types, description)
-
-        self.start_time = start_time
-        self.end_time = end_time

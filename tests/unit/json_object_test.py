@@ -73,7 +73,7 @@ class JsonToObjectTestCase(unittest.TestCase):
         self.assertEqual(variant[0].phenotype.type._value['id'], 'HP:0003560')
         self.assertEqual(variant[0].phenotype.type._value['label'], 'Muscular dystrophy')
 
-    def test_rountrip_json(self):
+    def test_roundtrip_json(self):
         pheno_packet = self.namespace\
             .UrnJsonschemaOrgMonarchinitiativePpkModelPhenopacket()\
             .from_json(json.dumps(self.omim_example))
